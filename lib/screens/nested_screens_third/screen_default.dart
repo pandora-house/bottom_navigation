@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'screen_builder.dart';
+
 class DefaultScreenThirdView extends StatelessWidget {
-  const DefaultScreenThirdView({Key? key,}) : super(key: key);
+  const DefaultScreenThirdView({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,16 +15,17 @@ class DefaultScreenThirdView extends StatelessWidget {
       ),
       body: Center(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/nested');
-                  },
-                  child: const Text('open nested third')),
-            ],
-          )),
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ElevatedButton(
+              onPressed: () {
+                Navigator.of(context)
+                    .pushNamed(ScreenThirdBuilder.nestedRoutName);
+              },
+              child: const Text('open nested third')),
+        ],
+      )),
     );
   }
 }

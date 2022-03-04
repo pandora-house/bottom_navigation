@@ -10,21 +10,25 @@ class ScreenSecondBuilder extends StatelessWidget {
 
   final GlobalKey<NavigatorState> navigatorKey;
 
+  static const defaultRoutName = '/';
+  static const nestedRoutFirstName = '/nested_1';
+  static const nestedRoutSecondName = '/nested_2';
+
   @override
   Widget build(BuildContext context) {
     return Navigator(
       key: navigatorKey,
-      initialRoute: '/',
+      initialRoute: defaultRoutName,
       onGenerateRoute: (RouteSettings settings) {
         WidgetBuilder builder;
         switch (settings.name) {
-          case '/':
+          case defaultRoutName:
             builder = (BuildContext _) => const DefaultScreenSecondView();
             break;
-          case '/nested_1':
+          case nestedRoutFirstName:
             builder = (BuildContext _) => const NestedScreenSecondView1();
             break;
-          case '/nested_2':
+          case nestedRoutSecondName:
             builder = (BuildContext _) => const NestedScreenSecondView2();
             break;
           default:

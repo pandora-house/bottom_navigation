@@ -9,18 +9,21 @@ class ScreenThirdBuilder extends StatelessWidget {
 
   final GlobalKey<NavigatorState> navigatorKey;
 
+  static const defaultRoutName = '/';
+  static const nestedRoutName = '/nested';
+
   @override
   Widget build(BuildContext context) {
     return Navigator(
       key: navigatorKey,
-      initialRoute: '/',
+      initialRoute: defaultRoutName,
       onGenerateRoute: (RouteSettings settings) {
         WidgetBuilder builder;
         switch (settings.name) {
-          case '/':
+          case defaultRoutName:
             builder = (BuildContext _) => const DefaultScreenThirdView();
             break;
-          case '/nested':
+          case nestedRoutName:
             builder = (BuildContext _) => const NestedScreenThirdView();
             break;
           default:

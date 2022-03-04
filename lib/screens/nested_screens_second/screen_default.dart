@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'screen_builder.dart';
+
 class DefaultScreenSecondView extends StatelessWidget {
   const DefaultScreenSecondView({
     Key? key,
@@ -18,7 +20,7 @@ class DefaultScreenSecondView extends StatelessWidget {
         children: [
           ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pushNamed('/nested_1');
+                Navigator.of(context).pushNamed(ScreenSecondBuilder.nestedRoutFirstName);
               },
               child: const Text('open nested_1 second')),
         ],
