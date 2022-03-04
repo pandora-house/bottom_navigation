@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../navigator_provider.dart';
 
 class DefaultScreenFirstView extends StatelessWidget {
   const DefaultScreenFirstView({Key? key,}) : super(key: key);
@@ -19,6 +22,11 @@ class DefaultScreenFirstView extends StatelessWidget {
                     Navigator.of(context).pushNamed('/nested');
                   },
                   child: const Text('open nested first')),
+              ElevatedButton(
+                  onPressed: () {
+                    context.read<NavigatorProvider>().openRoute(BottomMenu.itemSecond, '/nested_2');
+                  },
+                  child: const Text('open nested_2 from item 2')),
             ],
           )),
     );

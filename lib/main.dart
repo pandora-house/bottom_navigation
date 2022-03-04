@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import 'navigator_provider.dart';
 import 'screens/nested_screens_first/screen_builder.dart';
 import 'screens/nested_screens_second/screen_builder.dart';
 import 'screens/nested_screens_third/screen_builder.dart';
@@ -18,7 +20,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
+      home: ChangeNotifierProvider(
+        create: (context) => NavigatorProvider(),
+        child: const MyHomePage(),
+      ),
     );
   }
 }
@@ -45,33 +50,36 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
 
+    context.read<NavigatorProvider>().setNavigatorKeys(_keys);
+
     _screens.addAll([
       ScreenFirstBuilder(
-        navigatorKey: _keys[0],
+        navigatorKey: _keys[BottomMenu.itemFirst.index],
       ),
       ScreenSecondBuilder(
-        navigatorKey: _keys[1],
+        navigatorKey: _keys[BottomMenu.itemSecond.index],
       ),
       ScreenThirdBuilder(
-        navigatorKey: _keys[2],
+        navigatorKey: _keys[BottomMenu.itemThird.index],
       ),
     ]);
   }
 
   void _onItemTapped(int index) {
+    context.read<NavigatorProvider>().setScreenIndex(index);
+
     if (index == _selectedIndex) {
       if (_keys[index].currentState!.canPop()) {
         _keys[index].currentState!.popUntil((route) => route.isFirst);
       }
     } else {
-      setState(() {
-        _selectedIndex = index;
-      });
+      _selectedIndex = index;
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    _selectedIndex = context.watch<NavigatorProvider>().screenIndex();
     return Scaffold(
       body: IndexedStack(
         index: _selectedIndex,
@@ -81,15 +89,15 @@ class _MyHomePageState extends State<MyHomePage> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.view_module),
-            label: 'screen 1',
+            label: 'item 1',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.view_module_outlined),
-            label: 'screen 2',
+            label: 'item 2',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.view_module_rounded),
-            label: 'screen 3',
+            label: 'item 3',
           ),
         ],
         currentIndex: _selectedIndex, //New
