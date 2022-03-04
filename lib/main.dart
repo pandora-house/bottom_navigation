@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'screen_builders.dart';
+import 'screens/nested_screens_first/screen_builder.dart';
+import 'screens/nested_screens_second/screen_builder.dart';
+import 'screens/nested_screens_third/screen_builder.dart';
 
 void main() {
   runApp(const MyApp());
@@ -46,15 +48,12 @@ class _MyHomePageState extends State<MyHomePage> {
     _screens = <Widget>[
       ScreenFirstBuilder(
         navigatorKey: _keys[0],
-        index: 0,
       ),
       ScreenSecondBuilder(
         navigatorKey: _keys[1],
-        index: 1,
       ),
       ScreenThirdBuilder(
         navigatorKey: _keys[2],
-        index: 2,
       ),
     ];
   }
