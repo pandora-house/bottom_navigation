@@ -14,7 +14,6 @@ class DefaultScreenThirdView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('default screen third'),
               ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).pushNamed('/nested');

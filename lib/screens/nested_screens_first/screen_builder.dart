@@ -4,8 +4,7 @@ import 'screen_default.dart';
 import 'screen_nested.dart';
 
 class ScreenFirstBuilder extends StatelessWidget {
-  const ScreenFirstBuilder(
-      {Key? key, required this.navigatorKey})
+  const ScreenFirstBuilder({Key? key, required this.navigatorKey})
       : super(key: key);
 
   final GlobalKey<NavigatorState> navigatorKey;
@@ -19,14 +18,10 @@ class ScreenFirstBuilder extends StatelessWidget {
         WidgetBuilder builder;
         switch (settings.name) {
           case '/':
-            builder = (BuildContext _) => DefaultScreenFirstView(
-                  key: UniqueKey(),
-                );
+            builder = (BuildContext _) => const DefaultScreenFirstView();
             break;
           case '/nested':
-            builder = (BuildContext _) => NestedScreenFirstView(
-                  key: UniqueKey(),
-                );
+            builder = (BuildContext _) => const NestedScreenFirstView();
             break;
           default:
             throw Exception('Invalid route: ${settings.name}');

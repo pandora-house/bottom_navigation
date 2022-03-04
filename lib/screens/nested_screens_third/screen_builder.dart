@@ -4,8 +4,7 @@ import 'screen_default.dart';
 import 'screen_nested.dart';
 
 class ScreenThirdBuilder extends StatelessWidget {
-  const ScreenThirdBuilder(
-      {Key? key, required this.navigatorKey})
+  const ScreenThirdBuilder({Key? key, required this.navigatorKey})
       : super(key: key);
 
   final GlobalKey<NavigatorState> navigatorKey;
@@ -19,14 +18,10 @@ class ScreenThirdBuilder extends StatelessWidget {
         WidgetBuilder builder;
         switch (settings.name) {
           case '/':
-            builder = (BuildContext _) => DefaultScreenThirdView(
-              key: UniqueKey(),
-            );
+            builder = (BuildContext _) => const DefaultScreenThirdView();
             break;
           case '/nested':
-            builder = (BuildContext _) => NestedScreenThirdView(
-              key: UniqueKey(),
-            );
+            builder = (BuildContext _) => const NestedScreenThirdView();
             break;
           default:
             throw Exception('Invalid route: ${settings.name}');

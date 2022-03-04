@@ -33,7 +33,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
-  late final _screens;
+  final _screens = <Widget>[];
 
   final _keys = <GlobalKey<NavigatorState>>[
     GlobalKey<NavigatorState>(),
@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
 
-    _screens = <Widget>[
+    _screens.addAll([
       ScreenFirstBuilder(
         navigatorKey: _keys[0],
       ),
@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ScreenThirdBuilder(
         navigatorKey: _keys[2],
       ),
-    ];
+    ]);
   }
 
   void _onItemTapped(int index) {

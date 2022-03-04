@@ -14,7 +14,6 @@ class DefaultScreenFirstView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('default screen first'),
               ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).pushNamed('/nested');

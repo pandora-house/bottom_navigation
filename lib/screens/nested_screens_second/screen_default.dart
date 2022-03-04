@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class DefaultScreenSecondView extends StatelessWidget {
-  const DefaultScreenSecondView({Key? key,}) : super(key: key);
+  const DefaultScreenSecondView({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,17 +13,21 @@ class DefaultScreenSecondView extends StatelessWidget {
       ),
       body: Center(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text('default screen second'),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/nested');
-                  },
-                  child: const Text('open nested second')),
-            ],
-          )),
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/nested_1');
+              },
+              child: const Text('open nested_1 second')),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/nested_2');
+              },
+              child: const Text('open nested_2 second')),
+        ],
+      )),
     );
   }
 }
