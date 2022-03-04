@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 enum BottomMenu {itemFirst, itemSecond, itemThird}
 
 class NavigatorProvider extends ChangeNotifier{
-  var navigatorKeys = <GlobalKey<NavigatorState>>[];
+  var _navigatorKeys = <GlobalKey<NavigatorState>>[];
   var _screenIndex = 0;
 
   int screenIndex() => _screenIndex;
 
   void setNavigatorKeys(List<GlobalKey<NavigatorState>> keys) {
-    navigatorKeys = keys;
+    _navigatorKeys = keys;
   }
 
   void setScreenIndex(int index) {
@@ -20,6 +20,6 @@ class NavigatorProvider extends ChangeNotifier{
   void openRoute(BottomMenu menuItem, String route) {
     _screenIndex = menuItem.index;
     notifyListeners();
-    navigatorKeys[menuItem.index].currentState!.pushNamed(route);
+    _navigatorKeys[menuItem.index].currentState!.pushNamed(route);
   }
 }
