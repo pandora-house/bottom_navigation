@@ -9,6 +9,11 @@ class NestedScreenSecondView1 extends StatelessWidget {
         appBar: AppBar(
           title: const Text('nested_1 screen second'),
         ),
-        body: const Center(child: Text('nested_1 screen second')));
+        body: Center(
+            child: ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/nested_2');
+                },
+                child: const Text('open nested_2 second'))));
   }
 }

@@ -21,11 +21,6 @@ class DefaultScreenSecondView extends StatelessWidget {
                 Navigator.of(context).pushNamed('/nested_1');
               },
               child: const Text('open nested_1 second')),
-          ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed('/nested_2');
-              },
-              child: const Text('open nested_2 second')),
         ],
       )),
     );
